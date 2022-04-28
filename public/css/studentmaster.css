@@ -1,0 +1,41 @@
+/*Custom CSS By adarshthavarool@gmail.com*/
+.container {
+    max-width: 1771px;
+}
+
+.icon-trash {
+    color: red;
+}
+
+.icon-edit {
+    color: green;
+}
+
+.logo {
+    font-family: ui-monospace;
+    font-family: system-ui;
+    font-style: italic;
+    font-weight: 900;
+    text-decoration: underline;
+    color: navy !important;
+    background-color: #ddf4ff;
+}
+
+.page-title {
+    color: navy !important;
+    font-family: ui-monospace;
+}
+
+.add-button {
+    background-color: navy;
+}
+
+th {
+    background-color: navy;
+    color: white;
+}
+
+td {
+    background-color: #b2c4d773;
+    color: black;
+}
