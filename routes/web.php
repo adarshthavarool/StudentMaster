@@ -22,8 +22,6 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 
 
-// -------------------------
-
 /* Added by adarshthavarool@gmail.com on (28 April 2022 at 9:10 PM) */
 
 Route::group(['middleware' => ['auth']], function () {
