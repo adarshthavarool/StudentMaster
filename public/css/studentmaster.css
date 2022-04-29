@@ -26,7 +26,15 @@
     font-family: ui-monospace;
 }
 
-.add-button {
+.modal-header {
+    color: white ;
+    background-color: navy;
+}
+.close{
+    color: white;
+}
+
+.add-button{
     background-color: navy;
 }
 

@@ -13,21 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-//    return view('welcome');
-    return view('students.list');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 // -------------------------
-Route::resource('students', \App\Http\Controllers\StudentController::class);
-Route::resource('marks', \App\Http\Controllers\MarksController::class);
-Route::get('teachers-data', [\App\Http\Controllers\StudentController::class, 'teachersData'])->name('teachers-data');
-Route::get('students-data', [\App\Http\Controllers\StudentController::class, 'studentsData'])->name('students-data');
-Route::view('marklist', 'students.marks')->name('marks.list');
+
+
+Route::group(['middleware' => ['auth']], function () {
+    // These routes, are authenticated
+
+    Route::resource('students', \App\Http\Controllers\StudentController::class);
+    Route::resource('marks', \App\Http\Controllers\MarksController::class);
+    Route::get('teachers-data', [\App\Http\Controllers\StudentController::class, 'teachersData'])->name('teachers-data');
+    Route::get('students-data', [\App\Http\Controllers\StudentController::class, 'studentsData'])->name('students-data');
+    Route::view('marklist', 'students.marks')->name('marks.list');
+    Route::view('/', 'students.list')->name('students.list');
+
+});

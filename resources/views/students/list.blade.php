@@ -4,12 +4,20 @@
         <div class="row">
             <h4 class="page-title border-bottom">Students</h4>
         </div>
-        <div class="row justify-content-end mb-2">
-            <button type="button" class="btn btn-primary float-end student-modal-button add-button" id="new_student"
-                    data-toggle="modal"
-                    data-target="#student_modal"
-                    data-whatever=""><i class="icon-plus "></i> Add Student
-            </button>
+
+        <div class="row  mb-2">
+            <div class="col-md-6 justify-content-start">
+                <a  class="btn btn-primary float-end student-modal-button add-button " href="{{ route("marks.list") }}"
+                        ><i class="icon-list "></i> Mark List
+                </a>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary float-end student-modal-button add-button float-right" id="new_student"
+                        data-toggle="modal"
+                        data-target="#student_modal"
+                        data-whatever=""><i class="icon-plus "></i> Add Student
+                </button>
+            </div>
         </div>
         <div class="row ">
 
@@ -137,7 +145,9 @@
                             _token: '{{csrf_token()}}'
                         },
                         success: function (res) {
-
+                            if(selected == null) {
+                                $('#teacher_id').append($('<option selected disabled >').val('').text('Select Teacher'));
+                            }
                             $.each(res, function (i) {
                                 if (res[i].user.name === selected) {
                                     $('#teacher_id').append($('<option selected>').val(res[i].id).text(res[i].user.name));

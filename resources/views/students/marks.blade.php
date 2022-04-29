@@ -4,12 +4,21 @@
         <div class="row">
             <h4 class="page-title border-bottom">Mark List</h4>
         </div>
-        <div class="row justify-content-end mb-2">
-            <button type="button" class="btn btn-primary float-end student-modal-button add-button"
-                    id="add_student_mark"
-                    data-toggle="modal"
-                    data-target="#mark_modal"><i class="icon-plus "></i> Evaluate
-            </button>
+        <div class="row mb-2">
+
+
+            <div class="col-md-6 ">
+                <a  class="btn btn-primary float-end student-modal-button add-button " href="/"
+                ><i class="icon-list "></i> Students
+                </a>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary float-end student-modal-button add-button float-right"
+                        id="add_student_mark"
+                        data-toggle="modal"
+                        data-target="#mark_modal"><i class="icon-plus "></i> Evaluate
+                </button>
+            </div>
         </div>
         <div class="row ">
 
@@ -42,7 +51,7 @@
          aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header m-head">
                     <h5 class="modal-title" id="mark-modal-title">Add Score</h5>
                     <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -138,7 +147,7 @@
 
                 $('#add_student_mark').on('click', function () {
                     var type = 'add';
-                    getStudents('', type);
+                    getStudents(null, type);
                 });
 
                 // ----------------------------- GET STUDENT LIST -------------------- //
@@ -151,7 +160,9 @@
                             _token: '{{csrf_token()}}'
                         },
                         success: function (res) {
-
+                            if(selected == null) {
+                                $('#student').append($('<option selected disabled >').val('').text('Select Student'));
+                            }
                             $.each(res, function (i) {
                                 if (res[i].name === selected) {
                                     $('#student').append($('<option selected>').val(res[i].id).text(res[i].name));

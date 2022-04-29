@@ -57,7 +57,7 @@ class StudentController extends Controller
         if (!$request->student_id) {
             $newStudent = Student::create($request->all());
             if ($newStudent) {
-                return response()->json(['message' => 'Blog Created Successfully', 'status' => 201]);
+                return response()->json(['message' => 'Student Added Successfully', 'status' => 201]);
             } else {
                 return response()->json(['message' => $request, 'status' => 202]);
             }
