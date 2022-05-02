@@ -180,6 +180,7 @@
                     $("#student").empty();
                     document.getElementById('mark_form').reset();
                     $("#mark-modal-title").html('Add Score');
+                    $("#add-mark").html('Save');
                     $("#update-mark").hide();
                     $("#add-mark").show();
 

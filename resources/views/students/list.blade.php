@@ -164,6 +164,7 @@
                 $('.modal-close').on('click', function () {
                     document.getElementById('student_form').reset();
                     $("#student-modal-title").html('Add Student');
+                    $("#create-student").html('Add');
                     $("#update-student").hide();
                     $("#create-student").show();
                     $("#teacher_id").empty();
